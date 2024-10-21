@@ -1,0 +1,224 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    min-height: 100vh; /* Permite que a página tenha no mínimo 100% da altura da tela, mas cresce conforme necessário */
+}
+
+body {
+    background-color: #D9C6F0; /* Fundo roxo claro */
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+    overflow-x: hidden;
+}
+
+.container {
+    text-align: center;
+    max-width: 900px;
+    background-color: #FFFFFF;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
+    margin-top: 20px; /* Adiciona margem superior para garantir que o conteúdo não comece cortado */
+}
+
+.title {
+    font-size: 3rem;
+    color: #333;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.intro-section, .equation-section, .conclusion-section {
+    margin-bottom: 30px;
+}
+
+p {
+    font-size: 1.2rem;
+    color: #444;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.math-expression {
+    font-size: 1.7rem;
+    color: #333;
+    font-weight: bold;
+    margin: 20px 0;
+    background-color: #F0F0F0;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.description {
+    font-size: 1.1rem;
+    color: #555;
+}
+
+.love-message {
+    font-size: 3rem;
+    color: #333;
+    font-family: Arial, sans-serif;
+    border-bottom: 2px solid #333;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    transition: color 0.3s ease, border-color 0.3s ease, opacity 0.5s ease;
+}
+
+.instruction {
+    font-family: Arial, sans-serif;
+    font-size: 1.2rem;
+    color: #666;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.instruction span {
+    display: inline-block;
+}
+
+.arrow {
+    font-size: 2rem;
+    color: #666;
+    margin-left: 10px;
+    animation: bounce 1s infinite;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    color: #5D3FD3; /* Cor da palavra em destaque */
+}
+
+.tooltip .tooltip-text {
+    visibility: hidden;
+    width: 200px;
+    background-color: #7B61FF;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 10px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%; /* Ajusta a posição acima da palavra */
+    left: 50%;
+    margin-left: -100px; /* Centraliza a tooltip */
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    font-size: 12px;
+}
+
+.tooltip:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
+
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.heart_beating {
+    position: relative;
+    display: none;
+}
+
+.heart {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    background: #FF4B4B;
+    transform: rotate(45deg);
+    animation: beat 2s ease-out infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+}
+
+.heart::before, .heart::after {
+    content: '';
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: #FF4B4B;
+    position: absolute;
+}
+
+.heart::before {
+    top: -40px;
+    left: 0;
+}
+
+.heart::after {
+    top: 0;
+    left: 40px;
+}
+
+@keyframes beat {
+    0%, 40%, 70%, 100% {
+        transform: scale(1) rotate(315deg);
+    }
+    20% {
+        transform: scale(1.4) rotate(315deg);
+    }
+    50%, 80% {
+        transform: scale(1.2) rotate(315deg);
+    }
+}
+
+@keyframes beat_shadow {
+    0%, 40%, 70%, 100% {
+        transform: scale(1);
+    }
+    20% {
+        transform: scale(1.4);
+    }
+    50%, 80% {
+        transform: scale(1.2);
+    }
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .love-message {
+        font-size: 2.5rem;
+    }
+
+    .instruction {
+        font-size: 1rem;
+    }
+
+    .arrow {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .love-message {
+        font-size: 2rem;
+        padding-bottom: 8px;
+    }
+
+    .instruction {
+        font-size: 0.9rem;
+    }
+
+    .arrow {
+        font-size: 1.6rem;
+    }
+}
